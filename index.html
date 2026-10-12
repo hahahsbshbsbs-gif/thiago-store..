@@ -1,0 +1,80 @@
+Crea una página web completa, responsiva (optimizada para celulares) y 100% funcional en un solo archivo index.html (incluyendo HTML, CSS en <style> y JavaScript en <script>), lista para publicar en GitHub Pages.
+
+DATOS DE LA TIENDA:
+- Nombre: THIAGO STORE
+- Estilo visual: Gaming, modo oscuro / cyberpunk neón (tonos azul, morado y verde neón), botones atractivos con efectos hover y tipografía moderna.
+- Número de WhatsApp de recepción: +5493813461532
+
+SECCIONES Y CONTENIDO REQUERIDO:
+
+1. ENCABEZADO / HEADER:
+   - Título destacado "THIAGO STORE" con subtítulo "Recargas Oficiales de Diamantes".
+
+2. SECCIÓN "DIAMANTES INFINITOS":
+   - Muestra los siguientes productos listados uno debajo del otro, con un botón o selector para elegir el pack:
+     *  100 Diamantes + 10 Bono  $1.290
+     *  310 Diamantes + 31 Bono  $3.770
+     *  520 Diamantes + 52 Bono  $6.200
+     *  1060 Diamantes + 106 Bono  $11.210
+     *  2160 Diamantes + 218 Bono  $23.000
+     *  5600 Diamantes + 560 Bono  $55.400
+
+3. SECCIÓN "PASES Y FRAGMENTOS":
+   - Muestra los siguientes productos listados uno debajo del otro:
+     *  Pase Booyah  $1.900
+     *  Fragmentos  $90 c/u
+     *  Cajas EVOS  $300 c/u
+
+4. FORMULARIO DE RECARGA DIRECTA (OBLIGATORIO):
+   - Campo obligatorio para ingresar "ID de Jugador" (con un placeholder de ejemplo, ej: "Ej: 1234567890").
+   - Menú desplegable o selección de Categoría (Diamantes Infinitos, Pases y Fragmentos).
+   - Menú desplegable para seleccionar el Producto.
+   - Selección de Método de Pago con billeteras virtuales/bancos virtuales de Argentina:
+     * Mercado Pago
+     * Ualá
+     * Brubank
+     * Naranja X
+     * Personal Pay
+     * Cuenta DNI
+   - Muestra automáticamente el Precio Unitario y el Total a pagar según la selección.
+   - Botón destacado "ENVIAR PEDIDO POR WHATSAPP".
+
+5. INTEGRACIÓN CON WHATSAPP:
+   - Al hacer clic en el botón de envío, valida que el ID esté ingresado.
+   - Construye dinámicamente el enlace a WhatsApp `https://wa.me/5493813461532?text=...` codificando correctamente el texto.
+   - La plantilla exacta del mensaje generado debe ser:
+
+¡Hola!  Quiero comprar recarga en *THIAGO STORE* 
+
+
+ *ID del Jugador:* [ID INGRESADO]
+ *Categoría:* [CATEGORÍA SELECCIONADA]
+ *Producto:* [PRODUCTO SELECCIONADO]
+ *Precio unitario:* $[PRECIO]
+ *Total a pagar:* $[TOTAL]
+ *Método de pago:* [MÉTODO SELECCIONADO]
+
+
+¿Me confirmas los datos para realizar el pago? 
+
+6. SECCIÓN "PASOS DE CÓMO CARGAR":
+   - Lista explicativa paso a paso:
+     1. Selecciona tu pack o producto deseado.
+     2. Ingresa tu ID de Jugador y elige tu método de pago.
+     3. Presiona el botón para enviar tu pedido por WhatsApp.
+     4. Realiza la transferencia al cbu/alias que te enviaremos y adjunta tu comprobante.
+     5. ¡Listo! Tus diamantes/pases serán cargados en minutos.
+
+7. SECCIÓN "MÉTODOS DE PAGO":
+   - Iconos/Tarjetas con los nombres de bancos/billeteras virtuales de Argentina aceptados (Mercado Pago, Ualá, Brubank, Naranja X, Personal Pay, Cuenta DNI).
+
+8. SECCIÓN DE RESEÑAS Y ENTREGAS:
+   - Formulario interactivo para que los clientes dejen su reseña:
+     * Campo para Nombre/Apodo.
+     * Calificación con estrellas (1 a 5).
+     * Comentario/Texto de reseña.
+     * Campo para subir foto/captura (ej: "Captura que recibí mis diamantes").
+   - Al enviar, la reseña y la imagen cargada deben guardarse en `localStorage` para que no se borren al recargar la página, mostrándose de inmediato en la lista pública de reseñas junto con la imagen enviada.
+   - Incluir un par de reseñas de ejemplo predeterminadas.
+
+Asegúrate de que no haya errores de sintaxis en JavaScript ni fallos de diseño en dispositivos móviles.
