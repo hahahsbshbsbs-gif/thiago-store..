@@ -1,137 +1,314 @@
+```html
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>THIAGO STORE - Diamantes 【entity-Free Fire¦canonical_name=Free Fire】</title>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THIAGO STORE | Diamantes y Pases Free Fire</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fef2f2',
+                            100: '#fee2e2',
+                            500: '#ef4444',
+                            600: '#dc2626',
+                            700: '#b91c1c',
+                            900: '#7f1d1d',
+                            dark: '#0f172a',
+                            card: '#1e293b',
+                            accent: '#f59e0b'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0f19;
+            color: #f8fafc;
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glow-effect {
+            box-shadow: 0 0 25px -5px rgba(239, 68, 68, 0.3);
+        }
+        .glow-accent {
+            box-shadow: 0 0 25px -5px rgba(245, 158, 11, 0.3);
+        }
+    </style>
 </head>
-<body>
-<header class="header">
-  <div class="container header-inner">
-    <div class="logo"><div class="logo-icon">💎</div><span>THIAGO STORE</span></div>
-    <nav class="nav" id="nav">
-      <a href="#inicio">Inicio</a>
-      <a href="#diamantes">Diamantes</a>
-      <a href="#pases">Pases</a>
-      <a href="#como-comprar">Cómo comprar</a>
-      <a href="#pagos">Pagos</a>
-      <a href="#resenas">Reseñas</a>
-    </nav>
-    <button class="menu-toggle" id="menuToggle">☰</button>
-  </div>
-</header>
+<body class="min-h-screen flex flex-col selection:bg-red-500 selection:text-white">
 
-<section id="inicio" class="hero">
-  <div class="container hero-content">
-    <div class="hero-badge">🔥 +1000 entregas en Tucumán</div>
-    <h1>¡Bienvenido a <span class="accent">THIAGO STORE!</span> 💎<br>Tu compra en buenas manos.</h1>
-    <p>Recargas, pases y fragmentos con atención personalizada. Rápido, seguro y con comprobante.</p>
-    <div class="hero-actions">
-      <a href="#diamantes" class="btn btn-primary">Ver productos</a>
-      <a href="#como-comprar" class="btn btn-ghost">¿Cómo funciona?</a>
-    </div>
-  </div>
-</section>
+    <!-- HEADER -->
+    <header class="sticky top-0 z-50 glass-card border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-red-600 to-amber-500 flex items-center justify-center glow-effect">
+                    <i class="fa-solid fa-gem text-white text-xl animate-pulse"></i>
+                </div>
+                <div>
+                    <span class="text-xl sm:text-2xl font-black tracking-wider bg-gradient-to-r from-white via-red-200 to-amber-400 bg-clip-text text-transparent">THIAGO STORE</span>
+                    <span class="block text-[10px] tracking-widest text-amber-400 font-semibold uppercase">Free Fire Store 💎</span>
+                </div>
+            </div>
 
-<main class="container layout">
-  <div class="products-area">
-    <section id="diamantes" class="section">
-      <div class="section-head"><h2>DIAMANTES INFINITOS</h2><p>Packs con bono oficial incluido.</p></div>
-      <div class="grid" id="gridDiamantes"></div>
-    </section>
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-300">
+                <a href="#diamantes" class="hover:text-red-400 transition">Diamantes</a>
+                <a href="#pases" class="hover:text-red-400 transition">Pases y Fragmentos</a>
+                <a href="#como-comprar" class="hover:text-red-400 transition">¿Cómo Comprar?</a>
+                <a href="#pagos" class="hover:text-red-400 transition">Métodos de Pago</a>
+                <a href="#resenas" class="hover:text-red-400 transition">Reseñas</a>
+            </nav>
 
-    <section id="pases" class="section">
-      <div class="section-head"><h2>PASES Y FRAGMENTOS</h2><p>Cantidad ajustable, total automático.</p></div>
-      <div class="grid" id="gridPases"></div>
-    </section>
-
-    <section id="como-comprar" class="section">
-      <div class="section-head"><h2>¿CÓMO COMPRAR?</h2></div>
-      <div class="steps">
-        <div class="step"><span>1</span><h4>Elegí el producto</h4><p>Tocá Comprar en tu pack.</p></div>
-        <div class="step"><span>2</span><h4>Escribí tu ID</h4><p>ID 【entity-Free Fire¦canonical_name=Free Fire】, ej: 1234567890</p></div>
-        <div class="step"><span>3</span><h4>Seleccioná pago</h4><p>【entity-Mercado Pago¦canonical_name=Mercado Pago】, Ualá, etc.</p></div>
-        <div class="step"><span>4</span><h4>Revisá pedido</h4><p>Producto, cantidad y total.</p></div>
-        <div class="step"><span>5</span><h4>Continuar por 【entity-WhatsApp¦canonical_name=WhatsApp】</h4><p>Genera mensaje automático.</p></div>
-        <div class="step"><span>6</span><h4>Enviá el mensaje</h4><p>Esperá confirmación de THIAGO STORE.</p></div>
-        <div class="step"><span>7</span><h4>Realizá el pago</h4><p>Solo tras confirmación.</p></div>
-        <div class="step"><span>8</span><h4>Recibí tu compra</h4><p>Entrega verificada.</p></div>
-      </div>
-    </section>
-
-    <section id="pagos" class="section">
-      <div class="section-head"><h2>MÉTODOS DE PAGO</h2></div>
-      <div class="pay-grid">
-        <label class="pay-card"><input type="radio" name="pay_method_list" value="【entity-Mercado Pago¦canonical_name=Mercado Pago】"><b>【entity-Mercado Pago¦canonical_name=Mercado Pago】</b></label>
-        <label class="pay-card"><input type="radio" name="pay_method_list" value="Ualá"><b>Ualá</b></label>
-        <label class="pay-card"><input type="radio" name="pay_method_list" value="【entity-Personal Pay¦canonical_name=Personal Pay】"><b>【entity-Personal Pay¦canonical_name=Personal Pay】</b></label>
-        <label class="pay-card"><input type="radio" name="pay_method_list" value="【entity-Naranja X¦canonical_name=Naranja X】"><b>【entity-Naranja X¦canonical_name=Naranja X】</b></label>
-        <label class="pay-card"><input type="radio" name="pay_method_list" value="Cuenta DNI"><b>Cuenta DNI</b></label>
-        <label class="pay-card"><input type="radio" name="pay_method_list" value="Transferencia bancaria"><b>Transferencia bancaria</b></label>
-      </div>
-      <div class="notice">⚠️ No se publican alias/CBU/CVU. Los datos reales te los da el vendedor por 【entity-WhatsApp¦canonical_name=WhatsApp】 tras confirmar. No transfieras sin confirmación.</div>
-    </section>
-
-    <section id="resenas" class="section">
-      <div class="section-head"><h2>RESEÑAS DE CLIENTES</h2><p>Guardadas con localStorage solo en este navegador.</p></div>
-      <div class="card review-form">
-        <input id="reviewName" placeholder="Nombre o apodo" maxlength="30">
-        <textarea id="reviewText" placeholder="Tu experiencia..." maxlength="300"></textarea>
-        <label class="file-label"><input type="file" id="reviewImage" accept="image/jpeg,image/png,image/webp" hidden><span id="fileBtn">📸 Adjuntar captura (max 2MB)</span></label>
-        <img id="previewImg" class="preview hidden">
-        <div class="notice small">🔒 Ocultá ID y datos personales antes de subir.</div>
-        <button class="btn btn-primary full" id="publishReview">Publicar reseña</button>
-        <div id="reviewError" class="error"></div>
-      </div>
-      <div id="reviewsList" class="reviews-list"></div>
-    </section>
-  </div>
-
-  <aside class="checkout" id="checkout">
-    <div class="card checkout-card">
-      <div class="checkout-head"><h3>🛒 Tu pedido</h3><button id="cancelOrder" class="btn-close">✕</button></div>
-      <div id="noProduct" class="empty">Elegí un producto con “Comprar”.</div>
-      <form id="orderForm" class="hidden">
-        <label>ID del jugador 【entity-Free Fire¦canonical_name=Free Fire】 *</label>
-        <input id="playerId" inputmode="numeric" placeholder="Ej: 1234567890" required>
-        <small class="hint">Solo números, 5 a 12 dígitos.</small>
-        <div id="idError" class="error"></div>
-        <div class="field"><span>Categoría</span><strong id="catOut">-</strong></div>
-        <div class="field"><span>Producto</span><strong id="prodOut">-</strong></div>
-        <div class="field"><span>Precio unitario</span><strong id="unitOut">-</strong></div>
-        <label>Cantidad</label>
-        <div class="qty-control">
-          <button type="button" id="qtyMinus">−</button>
-          <input id="qtyInput" type="number" min="1" value="1">
-          <button type="button" id="qtyPlus">+</button>
+            <div class="flex items-center space-x-3">
+                <a href="#diamantes" class="hidden sm:inline-flex items-center space-x-2 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white font-bold px-5 py-2.5 rounded-xl shadow-lg transition transform active:scale-95">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span>Ver Productos</span>
+                </a>
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white focus:outline-none p-2">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
         </div>
-        <div class="total-box"><span>Total a pagar</span><strong id="totalOut">$0</strong></div>
-        <label>Método de pago *</label>
-        <div class="pay-options" id="payOptions">
-          <label><input type="radio" name="pay" value="【entity-Mercado Pago¦canonical_name=Mercado Pago】" required> 【entity-Mercado Pago¦canonical_name=Mercado Pago】</label>
-          <label><input type="radio" name="pay" value="Ualá"> Ualá</label>
-          <label><input type="radio" name="pay" value="【entity-Personal Pay¦canonical_name=Personal Pay】"> 【entity-Personal Pay¦canonical_name=Personal Pay】</label>
-          <label><input type="radio" name="pay" value="【entity-Naranja X¦canonical_name=Naranja X】"> 【entity-Naranja X¦canonical_name=Naranja X】</label>
-          <label><input type="radio" name="pay" value="Cuenta DNI"> Cuenta DNI</label>
-          <label><input type="radio" name="pay" value="Transferencia bancaria"> Transferencia bancaria</label>
-        </div>
-        <div id="payError" class="error"></div>
-        <button type="submit" class="btn btn-primary full" id="waBtn">Continuar por 【entity-WhatsApp¦canonical_name=WhatsApp】 →</button>
-      </form>
-    </div>
-  </aside>
-</main>
 
-<footer class="footer">
-  <div class="container footer-inner">
-    <div><strong>THIAGO STORE</strong><p>“Tu compra en buenas manos.”</p></div>
-    <div class="footer-links"><a href="#inicio">Inicio</a><a href="#diamantes">Productos</a><a href="#como-comprar">Pasos</a><a href="#resenas">Reseñas</a></div>
-    <div class="copy">© 2026 THIAGO STORE. No afiliado a Garena.</div>
-  </div>
-</footer>
-<div id="toast" class="toast"></div>
-<script src="script.js"></script>
-</body>
-</html>
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden glass-card border-t border-slate-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#diamantes" class="block py-2 text-slate-200 hover:text-red-400 font-medium">Diamantes Infinitos</a>
+            <a href="#pases" class="block py-2 text-slate-200 hover:text-red-400 font-medium">Pases y Fragmentos</a>
+            <a href="#como-comprar" class="block py-2 text-slate-200 hover:text-red-400 font-medium">¿Cómo Comprar?</a>
+            <a href="#pagos" class="block py-2 text-slate-200 hover:text-red-400 font-medium">Métodos de Pago</a>
+            <a href="#resenas" class="block py-2 text-slate-200 hover:text-red-400 font-medium">Reseñas de Clientes</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative overflow-hidden py-16 sm:py-24 bg-gradient-to-b from-slate-900 via-slate-900/90 to-[#0b0f19]">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#ef4444_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="inline-flex items-center space-x-2 bg-red-950/60 border border-red-500/30 px-4 py-1.5 rounded-full text-red-400 text-xs sm:text-sm font-semibold mb-6">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>Atención Rápida y 100% Segura</span>
+            </div>
+            <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white mb-6 leading-tight">
+                ¡Bienvenido a <span class="bg-gradient-to-r from-red-500 to-amber-400 bg-clip-text text-transparent">THIAGO STORE</span>! 💎
+            </h1>
+            <p class="text-lg sm:text-2xl text-slate-300 font-medium mb-4 max-w-2xl mx-auto">
+                Tu compra en buenas manos.
+            </p>
+            <p class="text-sm sm:text-base text-slate-400 mb-10 max-w-xl mx-auto">
+                Recargas, pases y fragmentos con atención personalizada y los mejores precios del mercado.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="#diamantes" class="w-full sm:w-auto bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white font-extrabold px-8 py-4 rounded-2xl shadow-xl glow-effect transition transform hover:-translate-y-0.5 text-center">
+                    <i class="fa-solid fa-gem mr-2"></i> Ver productos
+                </a>
+                <a href="#como-comprar" class="w-full sm:w-auto glass-card hover:bg-slate-800 text-slate-200 font-semibold px-8 py-4 rounded-2xl transition text-center">
+                    <i class="fa-solid fa-circle-question mr-2"></i> ¿Cómo comprar?
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-20 w-full">
+
+        <!-- SECTION: DIAMANTES INFINITOS -->
+        <section id="diamantes" class="scroll-mt-28">
+            <div class="text-center mb-12">
+                <span class="text-red-500 font-bold uppercase tracking-widest text-xs">Recargas Directas</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-white mt-1">DIAMANTES INFINITOS</h2>
+                <div class="w-24 h-1 bg-red-600 mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Product Card 1 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between border border-slate-800/80 hover:border-red-500/50 transition group">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-red-500/10 text-red-400 border border-red-500/20 text-xs font-bold px-3 py-1 rounded-full">+10 Bono</span>
+                            <span class="text-2xl">💎</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-1 group-hover:text-red-400 transition">100 Diamantes</h3>
+                        <p class="text-slate-400 text-sm mb-6">+ 10 Bono incluidos</p>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-black text-amber-400 mb-4">$1.290</div>
+                        <button onclick="selectProduct('Diamantes Infinitos', '100 Diamantes + 10 Bono', 1290)" class="w-full bg-red-600 hover:bg-red-500 text-white font-bold py-3 px-4 rounded-xl shadow-lg transition flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <span>Comprar</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between border border-slate-800/80 hover:border-red-500/50 transition group">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-red-500/10 text-red-400 border border-red-500/20 text-xs font-bold px-3 py-1 rounded-full">+31 Bono</span>
+                            <span class="text-2xl">💎</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-1 group-hover:text-red-400 transition">310 Diamantes</h3>
+                        <p class="text-slate-400 text-sm mb-6">+ 31 Bono incluidos</p>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-black text-amber-400 mb-4">$3.770</div>
+                        <button onclick="selectProduct('Diamantes Infinitos', '310 Diamantes + 31 Bono', 3770)" class="w-full bg-red-600 hover:bg-red-500 text-white font-bold py-3 px-4 rounded-xl shadow-lg transition flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <span>Comprar</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between border border-slate-800/80 hover:border-red-500/50 transition group">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-red-500/10 text-red-400 border border-red-500/20 text-xs font-bold px-3 py-1 rounded-full">+52 Bono</span>
+                            <span class="text-2xl">💎</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-1 group-hover:text-red-400 transition">520 Diamantes</h3>
+                        <p class="text-slate-400 text-sm mb-6">+ 52 Bono incluidos</p>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-black text-amber-400 mb-4">$6.200</div>
+                        <button onclick="selectProduct('Diamantes Infinitos', '520 Diamantes + 52 Bono', 6200)" class="w-full bg-red-600 hover:bg-red-500 text-white font-bold py-3 px-4 rounded-xl shadow-lg transition flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <span>Comprar</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between border border-slate-800/80 hover:border-red-500/50 transition group">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-red-500/10 text-red-400 border border-red-500/20 text-xs font-bold px-3 py-1 rounded-full">+106 Bono</span>
+                            <span class="text-2xl">💎</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-1 group-hover:text-red-400 transition">1060 Diamantes</h3>
+                        <p class="text-slate-400 text-sm mb-6">+ 106 Bono incluidos</p>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-black text-amber-400 mb-4">$11.210</div>
+                        <button onclick="selectProduct('Diamantes Infinitos', '1060 Diamantes + 106 Bono', 11210)" class="w-full bg-red-600 hover:bg-red-500 text-white font-bold py-3 px-4 rounded-xl shadow-lg transition flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <span>Comprar</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 5 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between border border-slate-800/80 hover:border-red-500/50 transition group">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-red-500/10 text-red-400 border border-red-500/20 text-xs font-bold px-3 py-1 rounded-full">+218 Bono</span>
+                            <span class="text-2xl">💎</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-1 group-hover:text-red-400 transition">2160 Diamantes</h3>
+                        <p class="text-slate-400 text-sm mb-6">+ 218 Bono incluidos</p>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-black text-amber-400 mb-4">$23.000</div>
+                        <button onclick="selectProduct('Diamantes Infinitos', '2160 Diamantes + 218 Bono', 23000)" class="w-full bg-red-600 hover:bg-red-500 text-white font-bold py-3 px-4 rounded-xl shadow-lg transition flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <span>Comprar</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 6 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between border border-slate-800/80 hover:border-red-500/50 transition group">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-red-500/10 text-red-400 border border-red-500/20 text-xs font-bold px-3 py-1 rounded-full">+560 Bono</span>
+                            <span class="text-2xl">💎</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-1 group-hover:text-red-400 transition">5600 Diamantes</h3>
+                        <p class="text-slate-400 text-sm mb-6">+ 560 Bono incluidos</p>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-black text-amber-400 mb-4">$55.400</div>
+                        <button onclick="selectProduct('Diamantes Infinitos', '5600 Diamantes + 560 Bono', 55400)" class="w-full bg-red-600 hover:bg-red-500 text-white font-bold py-3 px-4 rounded-xl shadow-lg transition flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <span>Comprar</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: PASES Y FRAGMENTOS -->
+        <section id="pases" class="scroll-mt-28">
+            <div class="text-center mb-12">
+                <span class="text-amber-400 font-bold uppercase tracking-widest text-xs">Pases, Fragmentos y Cajas</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-white mt-1">PASES Y FRAGMENTOS</h2>
+                <div class="w-24 h-1 bg-amber-500 mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Pase Card -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between border border-slate-800/80 hover:border-amber-500/50 transition">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs font-bold px-3 py-1 rounded-full">Pase Oficial</span>
+                            <span class="text-2xl">🎟️</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-1">Pase de Batalla</h3>
+                        <p class="text-slate-400 text-sm mb-6">Pase de nivel rápido</p>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-black text-amber-400 mb-4">$1.900</div>
+                        <button onclick="selectProduct('Pases y Fragmentos', 'Pase de Batalla', 1900, 1)" class="w-full bg-amber-600 hover:bg-amber-500 text-slate-950 font-bold py-3 px-4 rounded-xl shadow-lg transition flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-ticket"></i>
+                            <span>Comprar Pase</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Fragmentos Card -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between border border-slate-800/80 hover:border-amber-500/50 transition">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs font-bold px-3 py-1 rounded-full">Unidad: $90</span>
+                            <span class="text-2xl">🔮</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-1">Fragmentos</h3>
+                        <p class="text-slate-400 text-sm mb-4">Elegí la cantidad que necesitás</p>
+                        
+                        <div class="mb-4">
+                            <label class="block text-xs font-medium text-slate-300 mb-1">Cantidad:</label>
+                            <input type="number" id="qty-fragmentos" min="1" value="1" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white font-bold focus:outline-none focus:border-amber-500" onchange="updateDynamicPrice('fragmentos', 90)">
+                        </div>
+                    </div>
+                    <div>
+                        <div id="price-fragmentos" class="text-2xl font-black text-amber-400 mb-4">$90</div>
+                        <button onclick="selectDynamicProduct('Pases y Fragmentos', 'Fragmentos', 90, 'qty-fragmentos')" class="w-full bg-amber-600 hover:bg-amber-500 text-slate-950 font-bold py-3 px-4 rounded-xl shadow-lg transition flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <span>Comprar Fragmentos</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Cajas EVOS Card -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between border border-slate-800/80 hover:border-amber-500/50 transition">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-amber-500/10 text-amber-400 bord
