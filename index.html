@@ -1,80 +1,338 @@
-Crea una página web completa, responsiva (optimizada para celulares) y 100% funcional en un solo archivo index.html (incluyendo HTML, CSS en <style> y JavaScript en <script>), lista para publicar en GitHub Pages.
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THIAGO STORE - Carga de Diamantes</title>
+  <style>
+    :root {
+      --bg-dark: #0a0c10;
+      --card-bg: #121824;
+      --accent-cyan: #00f0ff;
+      --accent-magenta: #ff0055;
+      --accent-gold: #ffb700;
+      --text-main: #e2e8f0;
+      --text-muted: #94a3b8;
+      --border-color: #1e293b;
+    }
 
-DATOS DE LA TIENDA:
-- Nombre: THIAGO STORE
-- Estilo visual: Gaming, modo oscuro / cyberpunk neón (tonos azul, morado y verde neón), botones atractivos con efectos hover y tipografía moderna.
-- Número de WhatsApp de recepción: +5493813461532
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-SECCIONES Y CONTENIDO REQUERIDO:
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      padding: 20px 10px;
+      display: flex;
+      justify-content: center;
+    }
 
-1. ENCABEZADO / HEADER:
-   - Título destacado "THIAGO STORE" con subtítulo "Recargas Oficiales de Diamantes".
+    .container {
+      width: 100%;
+      max-width: 650px;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
 
-2. SECCIÓN "DIAMANTES INFINITOS":
-   - Muestra los siguientes productos listados uno debajo del otro, con un botón o selector para elegir el pack:
-     *  100 Diamantes + 10 Bono  $1.290
-     *  310 Diamantes + 31 Bono  $3.770
-     *  520 Diamantes + 52 Bono  $6.200
-     *  1060 Diamantes + 106 Bono  $11.210
-     *  2160 Diamantes + 218 Bono  $23.000
-     *  5600 Diamantes + 560 Bono  $55.400
+    header {
+      text-align: center;
+      padding: 20px 10px;
+      background: linear-gradient(135deg, rgba(0,240,255,0.1), rgba(255,0,85,0.1));
+      border: 1px solid var(--accent-cyan);
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+    }
 
-3. SECCIÓN "PASES Y FRAGMENTOS":
-   - Muestra los siguientes productos listados uno debajo del otro:
-     *  Pase Booyah  $1.900
-     *  Fragmentos  $90 c/u
-     *  Cajas EVOS  $300 c/u
+    header h1 {
+      font-size: 2.2rem;
+      color: var(--accent-cyan);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px var(--accent-cyan);
+    }
 
-4. FORMULARIO DE RECARGA DIRECTA (OBLIGATORIO):
-   - Campo obligatorio para ingresar "ID de Jugador" (con un placeholder de ejemplo, ej: "Ej: 1234567890").
-   - Menú desplegable o selección de Categoría (Diamantes Infinitos, Pases y Fragmentos).
-   - Menú desplegable para seleccionar el Producto.
-   - Selección de Método de Pago con billeteras virtuales/bancos virtuales de Argentina:
-     * Mercado Pago
-     * Ualá
-     * Brubank
-     * Naranja X
-     * Personal Pay
-     * Cuenta DNI
-   - Muestra automáticamente el Precio Unitario y el Total a pagar según la selección.
-   - Botón destacado "ENVIAR PEDIDO POR WHATSAPP".
+    header p {
+      color: var(--accent-gold);
+      font-weight: bold;
+      margin-top: 5px;
+    }
 
-5. INTEGRACIÓN CON WHATSAPP:
-   - Al hacer clic en el botón de envío, valida que el ID esté ingresado.
-   - Construye dinámicamente el enlace a WhatsApp `https://wa.me/5493813461532?text=...` codificando correctamente el texto.
-   - La plantilla exacta del mensaje generado debe ser:
+    .section-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
 
-¡Hola!  Quiero comprar recarga en *THIAGO STORE* 
-
+    .section-title {
+      font-size: 1.3rem;
+      color: var(--accent-magenta);
+      text-transform: uppercase;
+      margin-bottom: 15px;
+      border-bottom: 2px solid var(--accent-magenta);
+      padding-bottom: 5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
- *ID del Jugador:* [ID INGRESADO]
- *Categoría:* [CATEGORÍA SELECCIONADA]
- *Producto:* [PRODUCTO SELECCIONADO]
- *Precio unitario:* $[PRECIO]
- *Total a pagar:* $[TOTAL]
- *Método de pago:* [MÉTODO SELECCIONADO]
+    .price-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
 
-
-¿Me confirmas los datos para realizar el pago? 
+    .price-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a2234;
+      padding: 12px 15px;
+      border-radius: 8px;
+      border-left: 4px solid var(--accent-cyan);
+    }
 
-6. SECCIÓN "PASOS DE CÓMO CARGAR":
-   - Lista explicativa paso a paso:
-     1. Selecciona tu pack o producto deseado.
-     2. Ingresa tu ID de Jugador y elige tu método de pago.
-     3. Presiona el botón para enviar tu pedido por WhatsApp.
-     4. Realiza la transferencia al cbu/alias que te enviaremos y adjunta tu comprobante.
-     5. ¡Listo! Tus diamantes/pases serán cargados en minutos.
+    .price-item span.price {
+      color: var(--accent-gold);
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
 
-7. SECCIÓN "MÉTODOS DE PAGO":
-   - Iconos/Tarjetas con los nombres de bancos/billeteras virtuales de Argentina aceptados (Mercado Pago, Ualá, Brubank, Naranja X, Personal Pay, Cuenta DNI).
+    .form-group {
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
 
-8. SECCIÓN DE RESEÑAS Y ENTREGAS:
-   - Formulario interactivo para que los clientes dejen su reseña:
-     * Campo para Nombre/Apodo.
-     * Calificación con estrellas (1 a 5).
-     * Comentario/Texto de reseña.
-     * Campo para subir foto/captura (ej: "Captura que recibí mis diamantes").
-   - Al enviar, la reseña y la imagen cargada deben guardarse en `localStorage` para que no se borren al recargar la página, mostrándose de inmediato en la lista pública de reseñas junto con la imagen enviada.
-   - Incluir un par de reseñas de ejemplo predeterminadas.
+    label {
+      font-size: 0.9rem;
+      color: var(--accent-cyan);
+      font-weight: bold;
+    }
 
-Asegúrate de que no haya errores de sintaxis en JavaScript ni fallos de diseño en dispositivos móviles.
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      background: #1a2234;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: #fff;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: linear-gradient(90deg, #25d366, #128c7e);
+      color: white;
+      font-weight: bold;
+      font-size: 1.1rem;
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);
+      margin-top: 10px;
+      transition: transform 0.2s;
+    }
+
+    .btn-submit:active {
+      transform: scale(0.98);
+    }
+
+    .steps-list {
+      list-style-position: inside;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      color: var(--text-main);
+    }
+
+    .steps-list li {
+      background: #1a2234;
+      padding: 10px 15px;
+      border-radius: 8px;
+    }
+
+    .banks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .bank-card {
+      background: #1a2234;
+      border: 1px solid var(--border-color);
+      padding: 10px;
+      text-align: center;
+      border-radius: 8px;
+      font-weight: bold;
+      color: var(--accent-cyan);
+      font-size: 0.9rem;
+    }
+
+    .review-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 20px;
+      background: #1a2234;
+      padding: 15px;
+      border-radius: 8px;
+    }
+
+    .btn-review {
+      background: var(--accent-magenta);
+      color: white;
+      font-weight: bold;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .reviews-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .review-card {
+      background: #1a2234;
+      border-radius: 8px;
+      padding: 12px;
+      border-left: 3px solid var(--accent-gold);
+    }
+
+    .review-card h4 {
+      color: var(--accent-cyan);
+      margin-bottom: 5px;
+    }
+
+    .review-card p {
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+    }
+
+    .review-card img {
+      width: 100%;
+      max-height: 250px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <h1>THIAGO STORE</h1>
+    <p> Recargas Oficiales de Diamantes y Pases </p>
+  </header>
+
+  <!-- SECCION DIAMANTES INFINITOS -->
+  <div class="section-card">
+    <h2 class="section-title"> DIAMANTES INFINITOS</h2>
+    <div class="price-list">
+      <div class="price-item">
+        <span> 100 Diamantes + 10 Bono</span>
+        <span class="price">$1.290</span>
+      </div>
+      <div class="price-item">
+        <span> 310 Diamantes + 31 Bono</span>
+        <span class="price">$3.770</span>
+      </div>
+      <div class="price-item">
+        <span> 520 Diamantes + 52 Bono</span>
+        <span class="price">$6.200</span>
+      </div>
+      <div class="price-item">
+        <span> 1060 Diamantes + 106 Bono</span>
+        <span class="price">$11.210</span>
+      </div>
+      <div class="price-item">
+        <span> 2160 Diamantes + 218 Bono</span>
+        <span class="price">$23.000</span>
+      </div>
+      <div class="price-item">
+        <span> 5600 Diamantes + 560 Bono</span>
+        <span class="price">$55.400</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECCION PASES Y FRAGMENTOS -->
+  <div class="section-card">
+    <h2 class="section-title"> PASES Y FRAGMENTOS</h2>
+    <div class="price-list">
+      <div class="price-item">
+        <span> Pase Booyah</span>
+        <span class="price">$1.900</span>
+      </div>
+      <div class="price-item">
+        <span> Fragmentos</span>
+        <span class="price">$90 c/u</span>
+      </div>
+      <div class="price-item">
+        <span> Cajas EVOS</span>
+        <span class="price">$300 c/u</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORMULARIO DE CARGA -->
+  <div class="section-card">
+    <h2 class="section-title"> REALIZAR PEDIDO</h2>
+    <form id="orderForm">
+      
+      <div class="form-group">
+        <label for="playerId">ID DEL JUGADOR (*Obligatorio)</label>
+        <input type="number" id="playerId" placeholder="Ej: 1234567890" required>
+      </div>
+
+      <div class="form-group">
+        <label for="categorySelect">CATEGORÍA</label>
+        <select id="categorySelect" onchange="updateProducts()">
+          <option value="DIAMANTES INFINITOS">DIAMANTES INFINITOS</option>
+          <option value="PASES Y FRAGMENTOS">PASES Y FRAGMENTOS</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="productSelect">PRODUCTO</label>
+        <select id="productSelect" onchange="calculateTotal()"></select>
+      </div>
+
+      <div class="form-group">
+        <label for="quantity">CANTIDAD</label>
+        <input type="number" id="quantity" value="1" min="1" onchange="calculateTotal()" oninput="calculateTotal()">
+      </div>
+
+      <div class="form-group">
+        <label for="paymentMethod">MÉTODO DE PAGO</label>
+        <select id="paymentMethod">
+          <option value="Mercado Pago">Mercado Pago</option>
+          <option value="Ualá">Ualá</option>
+          <option value="Brubank">Brubank</option>
+          <option value="Naranja X">Naranja X</option>
+          <option value="Personal Pay">Personal Pay</option>
+          <option value="Cuenta DNI">
+          
